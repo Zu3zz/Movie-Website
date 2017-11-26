@@ -7,7 +7,7 @@ var app = express()
 
 app.set('views','./views/pages')
 app.set('view engine','jade')
-app.use(express.bodyParser())
+app.use(bodyParser。urlencoded())
 app.use(serverStatic('bower_components'))
 app.listen(port)
 
@@ -48,8 +48,18 @@ app.get('/',function(req,res){
 //detail page
 app.get('/movie:id',function(req,res){
 	res.render('detail',{
-		title: 'movie 详情页'
-	})
+		title: 'movie 详情页',
+		movie:{
+			title: '黑暗骑士',
+			doctor: '克里斯托佛·诺兰',
+			country: '美国',
+			year: 2008,
+			language: '英语',
+			poster: 'https://movie.douban.com/subject/1851857/',
+			flash: 'http://www.iqiyi.com/v_19rra6zong.html?vfm=2008_aldbd&fc=828fb30b722f3164&fv=p_02_01',
+			summary: '蝙蝠侠三部曲第二部 巅峰之作'
+		}
+		})
 })
 
 //admin page
@@ -72,6 +82,15 @@ app.get('/admin/movie',function(req,res){
 //list page
 app.get('/admin/list',function(req,res){
 	res.render('list',{
-		title: 'movie 列表页面'
+		title: 'movie 列表页面',
+		movies:[{
+			title: '黑暗骑士'
+			_id: 1,
+			doctor: '克里斯托佛·诺兰',
+			country: '美国',
+			year: 2008,
+			language: '英语'
+			flash: 'http://www.iqiyi.com/v_19rra6zong.html?vfm=2008_aldbd&fc=828fb30b722f3164&fv=p_02_01'
+		}]
 	})
 })
