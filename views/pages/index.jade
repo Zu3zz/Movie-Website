@@ -1,4 +1,4 @@
-extends ../layout
+extends ../layout.jade
 
 block content
   .container
@@ -6,10 +6,9 @@ block content
       each item in movies
         .col-md-2
           .thumbnail
-            a=(href="/movie/#{item._id")
+            a(href="/movie/#{item._id}")
               img(scr="#{item.poster}", alt="#{item.title}")
             .caption
               h2 #{title}
-              p:a.btn.btn-primary(href="/m,ovie/#{item._id}", role="button")
+              p:a.btn.btn-primary(href="/movie/#{item._id}", role="button")
                 观看预告片
-

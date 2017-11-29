@@ -1,4 +1,4 @@
-extends ../layout
+extends ../layout.jade
 
 block content
   .container
@@ -23,7 +23,7 @@ block content
         .form-group
           label.col-sm-2.control-label(for="inputPoster") 海报地址
           .col-sm-10
-            input#inputDoctor.form-control(type="text",name="movie[[poster]]", value="#{movie.[poster]}")
+            input#inputDoctor.form-control(type="text",name="movie[poster]", value="#{movie.poster}")
         .form-group
           label.col-sm-2.control-label(for="inputFlash") 片源地址
           .col-sm-10
