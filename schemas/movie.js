@@ -1,50 +1,54 @@
+//引入mongoose工具模块
 var mongoose = require('mongoose')
 
-var MoviesSchema = new mongoose.Schema({
-	doctor: String,
-	title: String,
-	language: String,
-	country: String,
-	summary: String,
-	flash: String,
-	poster: String,
-	year: Number,
+var schema = mongoose.Schema;
+
+var ObjectId = schema.Types.ObjectId;
+//定义一个movieSchema
+var movieSchema = new schema({
+	director:String,
+	country:String,
+	title:String,
+	year:Number,
+	poster:String,
+	language:String,
+	flash:String,
+	summary:String,
 	meta:{
 		createAt:{
-			type: Date,
-			default: Date.now()
+			type:Date,
+			default:Date.now()
 		},
 		updateAt:{
-			type: Date,
-			default: Date.now()
+			type:Date,
+			default:Date.now()
 		}
 	}
 })
 
-//add time before add new date
-MoviesSchema.pre('save',function(next){
-	if (thsis,isNew) {
-		this.meta.createAt = this.meta.updateAt = Date.now()
+movieSchema.pre('save',function(next){
+	//do something
+	if(this.isNew){
+		this.meta.createAt = this.meta.updateAt = Date.now();
+	}else{
+		this.meta.updateAt=Date.now();
 	}
-	else{
-		this.meta.updateAt = Date.now()
-	}
-
-	next()
+	//next
+	next();
 })
 
-MoviesSchema.statics = {
-	fetch: function(cb) {
-		return this
-		.find({})
-		.sort('meta.updateAt')
-		exec(cb)
-	}
-	findById: function(id,cb){
-		return this
-		.findOne({_id: id})
-		exec(cb)
-	}
+movieSchema.statics = {
+	    fetch:function (cb) {
+        return this
+            .find({})
+            .sort('meta.updateAt')
+            .exec(cb)
+    },
+    findById:function (id,cb) {
+        return this.findOne({_id:id})
+            .exec(cb)
+    }
 }
 
-module.exports = MoviesSchema
+module.exports = movieSchema;
+

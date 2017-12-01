@@ -1,0 +1,25 @@
+{
+  "name": "Movie-website",
+  "homepage": "https://github.com/Zu3zz/Movie-Website",
+  "authors": [
+    "PiiigzzZ <zthzththth@163.com>"
+  ],
+  "description": "nodejs movie website",
+  "main": "",
+  "keywords": [
+    "nodejs"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

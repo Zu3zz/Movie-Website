@@ -1,0 +1,35 @@
+{
+  "name": "movie",
+  "version": "1.0.1",
+  "description": "nodejs movie website",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "jade": "^1.11.0",
+    "mongoose": "^4.13.5",
+    "moment": "^2.19.2",
+    "pug": "^2.0.0-rc.4",
+    "serve-static": "^1.13.1",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zu3zz/Movie-Website.git"
+  },
+  "keywords": [
+    "nodejs",
+    "movie",
+    "website"
+  ],
+  "author": "Zu3zz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zu3zz/Movie-Website/issues"
+  },
+  "homepage": "https://github.com/Zu3zz/Movie-Website#readme"
+}
