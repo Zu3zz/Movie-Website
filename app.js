@@ -6,7 +6,7 @@ var Movie = require('./models/movie');
 var _ = require('underscore');
 
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3333;
  
 var app = express();
  
