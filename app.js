@@ -61,6 +61,7 @@ app.get('/', function(req, res){
 
   })
 });
+
  
 // 详情页
 app.get('/movie/:id', function(req, res){
