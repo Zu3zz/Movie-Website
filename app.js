@@ -3,6 +3,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Movie = require('./models/movie');
+var User = require('./models/user');
 var _ = require('underscore');
 
 
@@ -59,8 +60,63 @@ app.get('/', function(req, res){
     movies: movies,
   });
 
-  })
+  });
 });
+
+//signup page
+app.post('/user/signup', function(req,res) {
+  var _user = req.body.user;
+
+  var user = new User(_user)
+
+  user.save(function(err,user) {
+    if(err) {
+      console.log(err)
+    }
+    console.log(user)
+  })
+  //避免用户名重
+  /*
+  User.findOne({name: _user.name}, function(err ,user) {
+    if (err) {
+      console.log(err);
+    }
+    if (user) {
+      return res.redirect('/');
+    }
+    else {
+      var user = new User(_user);
+
+      user.save(function(err,user) {
+        if (err) {
+          console.log(err);
+        }
+        res.redirect('/admin/userlist');
+      });
+    }
+  })*/
+});
+
+//userlist page
+app.get('/admin/userlist', function(req, res){
+  Movie.fetch(function(err,users){
+    if(err) console.log(err)
+    res.render('userlist', {
+    title: '用户列表',
+    users: users
+  });
+  });
+ 
+});
+// /user/signup/1111 1111
+//var _userid = req.params.userid
+// /user/signup/1111?userid=1112
+//var _userid = req.query.userid _userid = 1112
+// /user/signup/1111?userid=1112
+//   {userid : 1113}
+//var _userid = req.body.userid _user id = 1113
+//req.param()
+//优先级 路由>body>query
 
  
 // 详情页

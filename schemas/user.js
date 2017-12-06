@@ -35,12 +35,12 @@ UserSchema.pre('save',function(next){
 	}
 
 	bcrypt.genSalt(SALT_WORK_FACTOR,function(err, salt) {
-		if (err) return next()
+		if (err) return next(err)
 
 			bcrypt.hash(user.password, salt, function(err ,hash) {
 				if (err) return next(err)
 
-				user.passwd = hash
+				user.password = hash
 			next()
 			})
 	})
@@ -61,5 +61,5 @@ UserSchema.statics = {
     }
 }
 
-module.exports = movieSchema;
+module.exports = UserSchema;
 
